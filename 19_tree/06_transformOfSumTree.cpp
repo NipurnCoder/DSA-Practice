@@ -37,7 +37,7 @@ void preOrder(Node* root){  //O(n)
 }
 
 //Transform of Sum Tree
-int sumTree(Node* root){
+int sumTree(Node* root){    //O(n)
     if(root == NULL){
         return 0;
     }
