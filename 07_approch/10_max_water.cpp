@@ -2,6 +2,23 @@
 #include<vector>
 using namespace std;
 
+//Revision Day 10
+
+/*
+
+ LeetCode-11 : Container With Most Water
+
+ Approach 1 : Brute Force
+    - find width, ht, currWater one by one  
+    - Takes Time O(n2)
+
+ Approach 2 : Two pointer
+    -use two pointer approach to find ht, wd, cw  
+    -Takes Time O(n)
+*/
+
+
+//function 1
 int max_water(vector<int>& height){ //O(n^2)
     int maxWater=0;
     int n = height.size();
@@ -18,10 +35,12 @@ int max_water(vector<int>& height){ //O(n^2)
     return maxWater;
 }
 
+//function 2
 int optimal_2pointer(vector<int>&height){ //O(n)
     int mw=0;
     int n = height.size();
     int lp=0, rp=n-1;
+    //lp = left ptr, rp = right ptr
 
     while(lp<rp){
         int wd = rp-lp;
@@ -29,6 +48,7 @@ int optimal_2pointer(vector<int>&height){ //O(n)
         int cw = wd*ht;
         mw = max(mw, cw);
 
+        //ternary condition
         height[lp] < height[rp] ? lp++ : rp--;
     }
     return mw;
