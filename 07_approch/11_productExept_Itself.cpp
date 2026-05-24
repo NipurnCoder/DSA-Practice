@@ -2,13 +2,29 @@
 #include<vector>
 using namespace std;
 
+//Reviseion Day 11
+
+/*
+    LeetCode-238 : Product of Array except self
+    
+    Approach 1 : Brute Force
+        Time = O(n*n)
+        Space = O(n)
+
+    Approach 2 : Optimized 
+        Time = O(n)
+        sapce = O(1)
+*/
+
 vector<int> productExcept_Itself(vector<int>&num){
     int n = num.size();
     vector<int> ans(n,1);
 
     for(int i=0; i<n; i++){
         for(int j=0; j<n; j++){
+            //Ignore Itself
             if(i != j){
+                //calc ans
                 ans[i] *= num[j];
             }
         }
@@ -34,11 +50,15 @@ vector<int> optimised(vector<int>&nums){
     //     ans[i] = prefix[i] * suffix[i];
     // }
 
+
+    //calc prefix and store it in ans
     for(int i=1;i<n;i++){
         ans[i] = ans[i-1] * nums[i-1];
     }
     
+    
     int suffix=1;
+    //calc siffix and store it
     for(int i=n-2;i>=0;i--){
         suffix *= nums[i+1];
         ans[i] *= suffix;
