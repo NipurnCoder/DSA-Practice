@@ -1,84 +1,58 @@
-// #include<iostream>
-// #include<vector>
-// using namespace std;
-
-// int majority(vector<int>nums)//, int target)
-// {
-//     int n = nums.size();
-
-//     //vector<int> val;
-//     for(int val : nums){
-//         int freq = 0;
-//         for(int el : nums){
-//             if(el == val){
-//                 freq++;
-//             }
-//         }
-//         if(freq > n/2){
-//             return val;
-//         }
-//     }
-//     return -1;
-// }
-
-// int main(){
-
-//     vector<int>nums = {3,4,5,3,3,3,3,2,1};
-//     //int target = 3;
-
-//     int ans = majority (nums)//, target);
-//     {
-//         if(ans!=-1){
-//             cout<<"Majority element is : "<<ans<<endl;
-//         }
-//         else{
-//             cout<<"No Majority element is found "<<endl;
-//         }
-//         return 0;
-//     }
-// }
-
-
-#include <iostream>
-#include <vector>
+#include<iostream>
+#include<vector>
 using namespace std;
 
-int majority(vector<int> nums)
+//Revision Day 13
+
+/*
+    Approach : Brute Force
+    Finds element whose freq is more than half of the array's size
+
+    Time = O(n*n)
+    Space = O(1)
+
+*/
+
+int majority(vector<int>nums) //int target)
 {
     int n = nums.size();
 
-    for (int val : nums)
-    {
+    //vector<int> val;
+
+    //Traverse Value in nums
+    for(int val : nums){
+        //Initialize freq
         int freq = 0;
-        for (int el : nums)
-        {
-            if (el == val)
-            {
+
+        //Traverse each element if found same increase freq
+        for(int el : nums){
+            if(el == val){
                 freq++;
             }
         }
-        if (freq > n / 2)
-        {
-            return val; // majority element found
+
+        //Freq should be greater than half size of array
+        if(freq > n/2){
+            return val;
         }
     }
-    return -1; // no majority element
+    return -1;
 }
 
-int main()
-{
-    vector<int> nums = {3, 4, 5, 3, 3, 3, 3, 2, 1};
+int main(){
 
-    int ans = majority(nums);
+    // vector<int>nums = {3,4,5,3,3,3,3,2,1};
+    vector<int> nums = {3,3,4,2,5,5,4,5};
+    //int target = 3;
 
-    if (ans != -1)
+    int ans = majority (nums); //target);
     {
-        cout << "Majority element is: " << ans << endl;
+        if(ans!=-1){
+            cout<<"Majority element is : "<<ans;
+        }
+        else{
+            cout<<"No Majority element is found ";
+        }
+        return 0;
     }
-    else
-    {
-        cout << "No majority element found." << endl;
-    }
-
-    return 0;
 }
