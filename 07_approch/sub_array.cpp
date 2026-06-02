@@ -1,6 +1,22 @@
 #include<iostream>
 using namespace std;
 
+//Revision Day 19
+
+/*
+    LeetCode - 198, 152 : Maximum Product Subarray
+
+    Approach - Brute force
+
+    Generate all possible subarrays
+    using start and end indices,
+    then print elements between them.
+
+    Time - O(n^3)
+    space - O(1)
+
+*/
+
 int sub_array(int arr[], int size) {
 
     // for(int start=0;start<size;start++){
@@ -10,6 +26,7 @@ int sub_array(int arr[], int size) {
 
     for(int i=0; i<size; i++){
         for(int j=i; j<size; j++){
+            //element b/w st & end
             for(int k=i; k<=j; k++){
                 cout<<arr[k]<<" ";
             }
@@ -25,4 +42,6 @@ int main() {
     int size = sizeof(arr)/sizeof(int);
 
     sub_array(arr,size);
+
+    return 0;
 }
