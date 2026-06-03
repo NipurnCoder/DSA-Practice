@@ -1,21 +1,36 @@
 #include<iostream>
 using namespace std;
 
-void changeA(int a){ //change by value
+//Revision Day 20
+
+/*
+    Concept: Passing Variables to Functions
+
+    Time - O(1)
+    Space - O(1)
+
+*/
+
+//pass by value
+void changeA(int a){ 
     a = 20;
 }
 
-void changeB(int* ptr){ //change by refrence
+//pass by pointer
+void changeB(int* ptr){ 
     *ptr = 600;
 }
 
+//pass by reference (alias)
 void changeC(int &d){
     d = 777;
 }
 
+//Pointer Increment and Decrement
 void incDec(){
     int a = 1;
     int *p = &a;
+
     cout<<p<<endl;
     p++;
     cout<<p<<endl;
