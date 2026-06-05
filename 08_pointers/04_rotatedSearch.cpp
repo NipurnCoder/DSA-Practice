@@ -2,6 +2,23 @@
 #include<vector>
 using namespace std;
 
+//Revioson Day 22 [5/6/26]
+
+/*
+    LeetCode 33 : Search in Rotated Sorted Array
+
+    Approach:
+    - Use Modified Binary Search.
+    - At every step, one half of the array is guaranteed to be sorted.
+    - Check whether the target lies in the sorted half.
+    - Discard the other half and continue searching.
+
+
+    Time - O(log n)
+    Space - O(1)
+
+*/
+
 class Solution {
 
 public :
@@ -14,14 +31,18 @@ public :
                 return mid;
             }
             
+            //Left Mid
             if(arr[st]<=arr[mid]){ //left
                 if(arr[st]<=tar && tar<=arr[mid]){
                     end=mid-1;
                 }
+                //right search
                 else{
                     st=mid+1;
                 }
             }
+            
+            //Right Mid
             else{
                 if(arr[mid]<=tar && tar <= arr[end]){
                     st=mid+1;
