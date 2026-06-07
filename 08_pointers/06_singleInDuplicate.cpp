@@ -2,6 +2,18 @@
 #include <vector>
 using namespace std;
 
+//Revision Day 24 [7/6/26]
+
+/*
+    LeetCode 540 : Single Element in a Sorted Array
+
+    Approach - Binary Search using Index Parity
+
+    Time  - O(log n)
+    Space - O(1) 
+
+*/
+
 int single(vector<int>& arr){
 
     int n = arr.size();
@@ -35,26 +47,26 @@ int single(vector<int>& arr){
     }
 }
 
- int inputArray(){
-    
-        int n;
-        cout<<"Enter the size of Duplicate Array : ";
-        cin>>n;
-        int sz = n;
-        int arr[sz];
-        cout<<"Enter the element of dublicate array : ";
-        for(int i=0;i<sz;i++){
-            cin>>arr[i];
-        }
-        cout<<endl;
+int inputArray(){
 
-        cout<<"Your array is : ";
-        for(int i=0;i<sz;i++){
-            cout<<arr[i]<<" ";
-        }
-        cout<<endl;
-        return 0;
+    int n;
+    cout<<"Enter the size of Duplicate Array : ";
+    cin>>n;
+    int sz = n;
+    int arr[sz];
+    cout<<"Enter the element of dublicate array : ";
+    for(int i=0;i<sz;i++){
+        cin>>arr[i];
     }
+    cout<<endl;
+
+    cout<<"Your array is : ";
+    for(int i=0;i<sz;i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+    return 0;
+}
 
 int main(){
 
@@ -68,9 +80,9 @@ int main(){
     int ans = single(arr);
     cout<<"The single element is : "<<ans<<endl;
 
-    inputArray();
-    int ans1 = single(inputArray);
-    cout<<ans1;
+    // inputArray();
+    // int ans1 = single(arr);
+    // cout<<ans1;
 
     return 0;
 }
