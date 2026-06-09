@@ -23,6 +23,7 @@ using namespace std;
 
 bool isvalid(vector<int> &arr, int n, int m, int maxAllowedPgs)
 {
+    //O(n)
     int student = 1, pages = 0;
 
     for (int i = 0; i < n; i++)
@@ -48,10 +49,14 @@ bool isvalid(vector<int> &arr, int n, int m, int maxAllowedPgs)
 int bookAllocate(vector<int> &arr, int n, int m)
 {
 
+    //m = no of student, n = no of books
     if (m > n)
     {
         return -1;
     }
+
+    //Calculate Sum
+    //O(n)
     int sum = 0;
     for (int i = 0; i < n; i++)
     {
@@ -59,9 +64,11 @@ int bookAllocate(vector<int> &arr, int n, int m)
     }
 
     int ans = -1;
-    int st = *max_element(arr.begin(), arr.end()); 
+    //int st = *max_element(arr.begin(), arr.end());
+    int st = 0; 
     int end = sum;
 
+    //O(log range)
     while (st <= end)
     {
         int mid = st + (end - st) / 2;
