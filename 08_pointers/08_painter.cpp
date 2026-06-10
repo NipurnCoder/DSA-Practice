@@ -3,10 +3,29 @@
 #include<climits>
 using namespace std;
 
+//Revision Day 26 [10/6/26]
+
+/*
+    Painter's Partition Problem
+
+    Approach:
+    - Binary Search on Answer
+    - Search space:
+        st  = largest board length
+        end = sum of all board lengths
+    - Check if all boards can be painted using at most m painters
+      with a maximum allowed time = mid.
+
+    Time Complexity: O(n * log(sum))
+    Space Complexity: O(1)
+*/
+
 bool isPossible(vector<int> &arr, int n, int m, int maxAllowedTime){
+
     int painters = 1, time = 0;
 
-    for(int i=0;i<n;i++){
+    for(int i=0; i<n; i++){
+
         if(time + arr[i] <= maxAllowedTime){
             time += arr[i];
         } else {
@@ -16,15 +35,20 @@ bool isPossible(vector<int> &arr, int n, int m, int maxAllowedTime){
     }
     return painters <= m;
 }
+
 int minTimeToPaint(vector<int> &arr, int n, int m){
+
     int sum =0, maxVal = INT_MIN;
+
     for(int i=0;i<n;i++){
         sum += arr[i];
         maxVal = max(maxVal, arr[i]);
     }
+
     int st=maxVal, end=sum, ans= -1;
 
     while(st<=end){
+        
         int mid = st+(end-st)/2;
 
         if(isPossible(arr, n, m, mid)){
@@ -38,6 +62,7 @@ int minTimeToPaint(vector<int> &arr, int n, int m){
 }
 
 int main(){
+
     vector<int> arr = {40, 30, 10, 20};
     int n=4, m=2;
 
