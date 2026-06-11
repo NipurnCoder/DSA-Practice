@@ -6,6 +6,8 @@ using namespace std;
 //Revision Day 26 [10/6/26]
 
 /*
+    LeetCode 1011 : Capacity To Ship Packages Within D Days
+    
     Painter's Partition Problem
 
     Approach:
