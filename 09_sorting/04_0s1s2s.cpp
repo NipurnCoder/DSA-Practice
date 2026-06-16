@@ -6,6 +6,8 @@ using namespace std;
 //Revision Day 31
 
 /*
+    LeetCode 75 : Sort Colors
+
     Sort an array containing only 0s, 1s, and 2s.
 
     Approach 1 (Brute Force): 
