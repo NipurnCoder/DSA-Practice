@@ -2,6 +2,28 @@
 #include<string>
 using namespace std;
 
+//Revision Day 42
+
+/*
+    LeetCode 443 : String Compression
+
+    Topic:
+    - String Compression (Two Pointers)
+    - In-place String Modification
+    - Count Consecutive Characters
+
+    Approach:
+    1. Traverse the string.
+    2. Count consecutive occurrences of each character.
+    3. Write the character once.
+    4. If count > 1, write its digits using to_string().
+    5. Resize the string to the final compressed length.
+
+    Time Complexity: O(n)
+    Space Complexity: O(1) Extra Space
+    (ignoring the small string created by to_string())
+*/
+
 void compress(string chars){
     int n = chars.length();
     int idx = 0;
@@ -31,7 +53,7 @@ void compress(string chars){
 
 int main(){
 
-    string chars = "aabbbcccc";
+    string chars = "aabbbcccckk";
 
     compress(chars);
     return 0;
