@@ -1,6 +1,22 @@
 #include <iostream>
 using namespace std;
 
+// Revision Day 44
+
+/*
+    LeetCode 1281 : Substract the Product and Sum of the Digit of an Integer
+    Leetcode 7 : Reverse Integer
+
+    Amstrong Number
+
+    153 = 1³ + 5³ + 3³ = 153
+
+    Time Complexity - O(digit)
+    Space Complexity - O(1)
+
+*/
+
+
 bool isArmstrong(int n){
     int copyN = n;
     int sumOfCubes = 0;
