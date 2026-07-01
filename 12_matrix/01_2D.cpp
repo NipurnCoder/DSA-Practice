@@ -4,8 +4,8 @@ using namespace std;
 //Revision Day 47
 
 /*
-    LeetCode 566 : Reshape the Matrix
-    
+    LeetCode 867, 48, 566 : Reshape the Matrix
+
     Topic: 2D Arrays in C++
 
     Concepts Covered:
@@ -33,6 +33,7 @@ int main(){
     int col = 3;
 
     cout<<"Enter the elements -"<<endl;
+
     for(int i=0; i<row; i++){
         for(int j=0; j<col; j++){
             cin>>matrix[i][j];
@@ -40,6 +41,7 @@ int main(){
     }
 
     cout<<"The matrix is -"<<endl;
+
     for(int i=0; i<row; i++){
         for(int j=0; j<col; j++){
             cout<<matrix[i][j]<<" ";
@@ -48,4 +50,5 @@ int main(){
     }
     //cout<<matrix[3][3];
     return 0;
+
 }  
