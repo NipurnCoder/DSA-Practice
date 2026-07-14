@@ -4,10 +4,27 @@
 #include<algorithm>
 using namespace std;
 
+//Revision Day 59
+
+/*
+    LeetCode 15 : 3Sum
+    
+    Approach:
+    - Brute Force (Three Nested Loops)
+    - Check every possible triplet.
+    - If sum == 0, sort the triplet.
+    - Use a set to avoid duplicate triplets.
+    - Store unique triplets in the answer vector.
+
+    Time Complexity: O(n³ × log m)
+    Space Complexity: O(m)
+*/
+
 vector<vector<int>> sumOf3(vector<int>& arr){
 
     vector<vector<int>> ans;
     set<vector<int>> s;
+
     int n = arr.size();
 
     for(int i=0; i<n; i++){
@@ -30,6 +47,7 @@ vector<vector<int>> sumOf3(vector<int>& arr){
 }
 
 int main(){
+
     vector<int> arr = {-1,0,1,2,-1,-4};
     vector<vector<int>> result = sumOf3(arr);
 
