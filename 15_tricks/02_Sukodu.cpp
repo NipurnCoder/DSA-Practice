@@ -2,6 +2,23 @@
 #include<vector>
 using namespace std;
 
+//Revision Day 75 [29/07/2026]
+
+/*
+    LeetCode 36, 37: Valid Sudoku, Sudoku Solver
+
+    Topic: Backtracking
+
+    Concepts Revised:
+    1. Backtracking
+    2. Recursion on 2D Grid
+    3. Constraint Checking (Row, Column, 3x3 Box)
+    4. Base Case & Backtracking (Place -> Recurse -> Undo)
+
+    TimeComplexity: O(9^k)
+    SpaceComplexity: O(k), where k = number of empty cells
+*/
+
 bool isSafe(vector<vector<char>>& board, int row, int col, char dig){
 
     //horizontal
@@ -16,7 +33,7 @@ bool isSafe(vector<vector<char>>& board, int row, int col, char dig){
             return false;
         }
     }
-    //grid
+    //grid 3X3
     int srow = (row/3)*3;
     int scol = (col/3)*3;
 
@@ -52,14 +69,15 @@ bool helper(vector<vector<char>>& board, int row, int col){
         return helper(board, row, col+1);
     }
 
-    for(char dig= '1'; dig<= '9'; dig++){   //backtracking
+    for(char dig= '1'; dig<= '9'; dig++){   
+
         if(isSafe(board, row, col, dig)){ 
             board[row][col] = dig;
         
         if(helper(board, row, col+1))
             return true;
 
-            board[row][col] = '.';
+            board[row][col] = '.';  //backtracking
         }
     }
     return false;
