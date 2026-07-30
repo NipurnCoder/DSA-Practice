@@ -2,6 +2,25 @@
 #include<vector>
 using namespace std;
 
+//Revision Day 76
+
+/*
+    LeetCode 79 : Word Search
+
+    Topic: Backtracking - Rat in a Maze
+
+    Concepts Revised:
+    ✔ Recursive DFS
+    ✔ Backtracking (mark & unmark visited)
+    ✔ Exploring all possible paths
+    ✔ Boundary and obstacle checking
+    ✔ Path generation using D, U, L, R
+    ✔ Visited matrix to avoid cycles
+
+    Time Complexity: O(4^(N*N)) (worst case)
+    Space Complexity: O(N*N) + recursion stack
+*/
+
 void helper(vector<vector<int>>& mat, int r, int c, string path, vector<string>& ans, vector<vector<bool>>& vis){
 
     int n = mat.size();
