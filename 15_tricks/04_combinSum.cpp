@@ -4,7 +4,24 @@
 #include<algorithm>
 using namespace std;
 
+//Revision Day 77
+
+/*
+    LeetCode 39, 93 : Combination Sum, Restore IP Address
+
+    Topic: Backtracking - Combination Sum
+
+    Learned:
+    1. Include-Exclude recursion.
+    2. Reuse the same element by staying at the same index.
+    3. Move to the next index when excluding an element.
+    4. Stop recursion when target < 0 or index reaches the end.
+    5. Store the current combination when target == 0.
+    6. Avoid generating duplicate recursion paths; no set is needed for LC 39.
+*/    
+
 set<vector<int>> s;
+
 void getAllCombination(vector<int>& arr, int idx, int tar, vector<vector<int>>& ans, vector<int>& combin){
 
     if(idx == arr.size() || tar < 0){
