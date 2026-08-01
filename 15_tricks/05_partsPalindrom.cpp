@@ -4,6 +4,22 @@
 #include<vector>
 using namespace std;
 
+//Revision Day 78
+
+/*
+    LeetCode 784 : Letter Case Permutation
+
+    Topic: Backtracking – Palindrome Partitioning
+
+    Concepts Revised:
+
+    Generate all possible partitions recursively.
+    Choose only palindrome prefixes.
+    Backtracking with push/pop.
+    Base case when the remaining string becomes empty.
+    Recursive exploration of all valid partitions.
+*/    
+
 bool isPalindrom(string s){
     string s2 = s;
     reverse(s2.begin(), s2.end());
@@ -19,6 +35,7 @@ void getAllPart(string s, vector<vector<string>>& ans, vector<string>& parts){
 
     for(int i=0; i<s.size(); i++){
         string part = s.substr(0,i+1);
+
         if(isPalindrom(part)){
             parts.push_back(part);
 
