@@ -3,38 +3,65 @@
 #include<algorithm>
 using namespace std;
 
+//Revision Day 82
+
+/*
+    LeetCode 493 : Reverse Pairs [Hard]
+
+    Topic : Merge Sort – Inversion Count
+    
+    Algorithm :
+        1. Split the array recursively.
+        2. Count inversions in the left half.
+        3. Count inversions in the right half.
+        4. During merge, if arr[i] > arr[j], then all remaining elements from i to mid are 
+            greater than arr[j], so add mid - i + 1.
+
+    Time: O(n log n)
+    Space: O(n)
+ */
+
 int merge(vector<int> &arr, int st, int mid, int end){
+
     vector<int> temp;
+
     int i=st, j=mid+1;
     int invCount = 0;
 
-    while(i<=mid && j<=end){
+    while(i <= mid && j <= end){
+
         if(arr[i] <= arr[j]){
             temp.push_back(arr[i]);
             i++;
-        } else{
+        } 
+        else{
             temp.push_back(arr[j]);
             j++;
             invCount += (mid-i+1);
         }
     }
+
     while(i <= mid){
         temp.push_back(arr[i]);
         i++;
     }
+
     while(j <= end){
         temp.push_back(arr[j]);
         j++;
     }
 
-    for(int idx=0; idx<temp.size(); idx++){
+    for(int idx=0; idx < temp.size(); idx++){
         arr[idx+st] = temp[idx];
     }
+
     return invCount;
 }
 
 int mergeSort(vector<int> &arr, int st, int end){
-    if(st<end){
+
+    if(st < end){
+
         int mid = st + (end-st)/2;
 
         int leftInvCount = mergeSort(arr, st, mid);
@@ -44,6 +71,7 @@ int mergeSort(vector<int> &arr, int st, int end){
 
         return leftInvCount + rightInvCount + invCount;
     }
+
     return 0;
 }
 
