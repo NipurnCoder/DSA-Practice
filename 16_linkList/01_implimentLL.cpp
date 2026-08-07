@@ -1,38 +1,70 @@
 #include<iostream>
 using namespace std;
 
-class Node{
-    public:
-        int data;
-        Node* next;
+//Revision Day 84 [07/08/2026]
 
-        Node(int val){
-            data = val;
-            next = NULL;
-        }
+/*
+    LeetCode 203 : Remove Linked List Elements
+
+    Topic: Singly Linked List
+
+    Algorithm : Linked List Operations
+
+    Operations:
+    1. push_front() - Insert node at the beginning.
+    2. push_back()  - Insert node at the end.
+    3. pop_front()  - Delete the first node.
+    4. pop_back()   - Delete the last node.
+    5. insert()     - Insert node at a given position.
+    6. search()     - Search for an element.
+    7. reverse()    - Reverse using 3 pointers.
+    8. middle()     - Find middle using Slow & Fast pointers.
+
+    Key Point:
+    Linked Lists use node pointers instead of indices.
+    Always handle edge cases: Empty List & Single Node.
+
+    Time      : O(1) - O(n) depending on operation
+    Space     : O(1) auxiliary
+    
+*/    
+
+class Node{
+
+public:
+    int data;
+    Node* next;
+
+    Node(int val){
+        data = val;
+        next = NULL;
+    }
 };
 
 class List{
     Node* head;
     Node* tail;
 
-    public:
-        List(){
-            head = tail = NULL;
-        }
-        void push_front(int val){
-            Node* newNode = new Node(val); //dynamic
-            //Node newNode(val); //static-delete after the function runs
-            if(head == NULL){
-                head = tail = newNode;
-                return;
-            } else{
-                newNode->next = head;
-                head = newNode;
-            }
-        }
+public:
+    List(){
+        head = tail = NULL;
+    }
 
-    void push_back(int val){
+    void push_front(int val){   //O(1)
+
+        Node* newNode = new Node(val); //dynamic
+        //Node newNode(val); //static-delete after the function runs
+
+        if(head == NULL){
+            head = tail = newNode;
+            return;
+        } else{
+            newNode->next = head;
+            head = newNode;
+        }
+    }
+
+    void push_back(int val){    //O(1)
         Node* newNode = new Node(val);
 
         if(head == NULL){
@@ -43,7 +75,7 @@ class List{
         }
     }    
 
-    void pop_front(){
+    void pop_front(){   //O(1)
         if(head == NULL){
             cout<<"LL is empty\n";
             return;
@@ -56,13 +88,20 @@ class List{
         delete temp;
     }
 
-    void pop_back(){
+    void pop_back(){    //O(n)
         if(head == NULL){
             cout<<"LL is empty\n";
             return;  
         }
 
+        if(head == tail){
+            delete head;
+            head = tail = NULL;
+            return;
+        }
+
         Node* temp = head;
+        
         while(temp->next != tail){
             temp = temp->next;
         }
@@ -72,7 +111,7 @@ class List{
         tail = temp;
     }
 
-    void insert(int val, int pos){
+    void insert(int val, int pos){  //O(n)
         if(pos < 0){
             cout<<"invalid pos\n";
             return;
@@ -82,6 +121,7 @@ class List{
             return;
         }
         Node* temp = head;
+
         for(int i=0; i<pos-1; i++){
             if(temp == NULL){
                 cout<<"Invalid pos\n";
@@ -89,12 +129,21 @@ class List{
             }
             temp = temp->next;
         }
+        if(temp == NULL){
+            cout<<"Invalid pos\n";
+            return;
+        }
+
         Node* newNode = new Node(val);
         newNode->next = temp->next;
         temp->next = newNode;
+
+        if(newNode->next == NULL){
+            tail = newNode;
+        }
     }
 
-    void printll(){
+    void printll(){     //O(n)
         Node* temp = head;
 
         while(temp != NULL){
@@ -118,7 +167,7 @@ class List{
         return -1;
     }
 
-    void reverse(){
+    void reverse(){     //O(n)
         Node* prev = NULL;
         Node* curr = head;
         Node* next = NULL;
@@ -126,7 +175,7 @@ class List{
         tail = head;
 
         while(curr != NULL){
-            next= curr->next;
+            next = curr->next;
             curr->next = prev;
 
             prev = curr;
@@ -135,7 +184,7 @@ class List{
         head = prev;
     }
 
-    void middle(){
+    void middle(){      //O(n)
         Node* slow = head;
         Node* fast = head;
 
@@ -171,7 +220,7 @@ int main(){
     ll.printll();
 
     cout<<"Insert element in middle"<<endl;
-    ll.insert(4, 1 );
+    ll.insert(4, 1 ); //(val, pos)
     ll.printll();
 
     cout<<"Search element 1"<<endl;
