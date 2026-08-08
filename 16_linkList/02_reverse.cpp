@@ -1,6 +1,30 @@
 #include<iostream>
 using namespace std;
 
+//Revision Day 85
+
+/*
+    LeetCode 206 : Reverse Liked List
+
+    Topic: Singly Linked List - Reverse a Linked List
+
+    Algorithm: Iterative 3-Pointer Approach
+
+    Steps:
+    1. Initialize prev = NULL and curr = head.
+    2. Store curr->next in next before changing the link.
+    3. Reverse the current node's link: curr->next = prev.
+    4. Move prev and curr one step forward.
+    5. After the loop, update head = prev.
+
+    Key Point:
+    Always store curr->next before reversing the link,
+    otherwise the remaining list will be lost.
+
+    Time Complexity: O(n)
+    Space Complexity: O(1)
+*/    
+
 class Node{
 public:
     int data;
@@ -22,6 +46,7 @@ public:
     }
 
     // Insert at end
+
     void push_back(int val){
         Node* newNode = new Node(val);
         if(head == NULL){
