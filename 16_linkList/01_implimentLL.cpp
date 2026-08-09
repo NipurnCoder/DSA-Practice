@@ -6,7 +6,9 @@ using namespace std;
 /*
     LeetCode 203 : Remove Linked List Elements
 
-    Topic: Singly Linked List
+    Topic: Singly Linked List (SLL):
+        A linked list where each node contains data and a pointer to the next node, 
+        allowing traversal in only one direction.
 
     Algorithm : Linked List Operations
 
