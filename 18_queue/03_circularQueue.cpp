@@ -1,19 +1,63 @@
 #include<iostream>
 using namespace std;
 
+//Revision Day 97
+
+/*
+    Related LeetCode:
+    LeetCode 622 - Design Circular Queue
+
+    Topic: Circular Queue Implementation using Array
+
+    Implemented:
+    1. push()   -> Insert element at the rear
+    2. pop()    -> Remove element from the front
+    3. front()  -> Return front element
+    4. empty()  -> Check whether queue is empty
+    5. printArr() -> Display the array elements
+
+    Circular Queue : Follows FIFO (First In, First Out).
+        The rear and front move circularly using:
+        (index + 1) % capacity
+
+    Structure:
+    f -> Front of Queue
+    r -> Rear of Queue
+    currSize -> Current number of elements
+
+    Time Complexity:
+    push()   -> O(1)
+    pop()    -> O(1)
+    front()  -> O(1)
+    empty()  -> O(1)
+
+    Space Complexity:
+    O(n)
+
+    Important:
+    When rear reaches the last index, it wraps around
+    to index 0 using modulo (%).
+
+    Also revised variable shadowing:
+    Use f = 0 and r = -1 instead of
+    int f = 0 and int r = -1 inside the constructor.
+*/
+
 class Circular {
-    int f;
-    int r;
+    int f;  //front
+    int r;  //rear
     int currSize;
     int *arr;
-    int cap ;
+    int cap ; //capacity - maximum number of elements the queue can hold.
 
 public:
     Circular(int size){
 
         cap = size;
-        int f = 0;
-        int r = -1;
+
+        //int f = 0, r = -1; local variable -> shadows class member 
+        f = 0;
+        r = -1;
         arr = new int [cap];
         currSize = 0;
     }
@@ -58,6 +102,7 @@ public:
 };
 
 int main(){
+
     Circular c(3);
 
     c.push(1);
