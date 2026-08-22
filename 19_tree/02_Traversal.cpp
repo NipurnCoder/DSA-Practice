@@ -3,6 +3,35 @@
 #include<queue>
 using namespace std;
 
+//Revision Day 99
+
+/*
+    LeetCode 145 : Binary Tree Postorder Traversal
+
+    Topic: Binary Tree & Tree Traversals
+
+    Implemented:
+    1. Build Binary Tree using Preorder (-1 represents NULL)
+    2. Preorder Traversal  -> Root, Left, Right
+    3. Inorder Traversal   -> Left, Root, Right
+    4. Postorder Traversal -> Left, Right, Root
+    5. Level Order Traversal using Queue
+    6. Level Order Traversal with Next Line
+
+    Key Concepts:
+    - Recursion is used for tree construction and DFS traversals.
+    - Queue is used for Level Order (BFS) traversal.
+    - NULL marker is used to separate different levels.
+    - Preorder representation helps reconstruct the original tree.
+
+    Time Complexity: O(n) for traversal
+    Space Complexity: O(h) for recursive DFS
+
+    Important:
+    DFS  -> Preorder, Inorder, Postorder
+    BFS  -> Level Order
+*/    
+
 class Node{
 public:
     int data;
@@ -29,7 +58,8 @@ Node* buildTree(vector<int> preorder){
 
     return root;
 }
-// pre-order traverse [root, lefft, right]
+
+// pre-order traverse [root, left, right]
 void preOrderTraverse(Node* root){  //O(n) 
     if(root == NULL){
         return;
@@ -61,6 +91,9 @@ void postOrder(Node* root){
 
 //level-order traversal [level wise]
 void levelOrder(Node* root){
+
+    if(root == NULL) return;
+
     queue<Node*> q;
 
     q.push(root);
@@ -82,6 +115,9 @@ void levelOrder(Node* root){
 
 //level-order by nextline
 void levelOrderByLine(Node* root){
+
+    if(root == NULL) return;
+
     queue<Node*> q;
 
     q.push(root);
