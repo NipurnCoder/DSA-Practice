@@ -3,6 +3,44 @@
 #include<algorithm>
 using namespace std;
 
+//Revision Day 100 [23/08/2026]
+
+/*
+    LeetCode 104 : Maximum Depth of Binary Tree
+             222 : Count Complete Tree Node
+             938 : Range Sum of BST
+             226 : Invert Binary Tree
+
+    Topic: Binary Tree - Basic Properties
+
+    Implemented:
+    1. buildTree()  -> Builds a binary tree from preorder traversal where -1 represents NULL.
+    2. height()     -> Finds the height of the binary tree.
+    3. count()      -> Counts the total number of nodes.
+    4. sum()        -> Calculates the sum of all node values.
+
+    Key Concepts:
+    - Binary Tree is recursively divided into left and right subtrees.
+    - Base Case: root == NULL
+    - Height = max(leftHeight, rightHeight) + 1
+    - Count = leftCount + rightCount + 1
+    - Sum = leftSum + rightSum + root->data
+
+    Time Complexity:
+    O(n) for height, count and sum.
+
+    Space Complexity:
+    O(h) due to recursion stack,
+    where h = height of the tree.
+
+    Key Takeaway:
+    Most Binary Tree problems can be solved using the same recursive pattern:
+    1. Base Case
+    2. Solve Left Subtree
+    3. Solve Right Subtree
+    4. Combine the results.
+*/
+
 class Node{
 public:
     int data;
@@ -65,6 +103,7 @@ int sum(Node* root){
 }
 
 int main(){
+
     vector<int> preorder = {1,2,-1,-1,3,4,-1,-1,5,-1,-1};
     Node* root = buildTree(preorder);
     
