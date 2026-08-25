@@ -2,6 +2,32 @@
 #include<vector>
 using namespace std;
 
+//Revision Day 102
+
+/*
+    LeetCode 102 : Level Order Traversal
+
+    Topic: Print Nodes at K-th Level of Binary Tree
+
+    Key Concepts:
+    1. Used recursion to traverse the binary tree.
+    2. Root is considered Level 1.
+    3. Decrease k by 1 whenever moving to the next level.
+    4. When k == 1, print the current node.
+    5. If root == NULL, return to stop recursion.
+
+    Function:
+    KthLevel(root, k)
+    → Traverse left and right subtrees recursively.
+    → Print all nodes present at the K-th level.
+
+    Time Complexity: O(n) in worst case
+    Space Complexity: O(h), where h = height of tree
+
+    Key Takeaway:
+    "Move down → k-- ; k == 1 → print node"
+*/
+
 class Node{
 public:
     int data;
