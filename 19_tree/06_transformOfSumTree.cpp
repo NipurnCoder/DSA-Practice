@@ -2,6 +2,32 @@
 #include<vector>
 using namespace std;
 
+//Revision Day 103
+
+/*
+    LeetCode 508 : Most Frequent Subtree Sum
+             129 : Sum Root to Leaf Numbers
+
+    Topic: Transform Binary Tree into Sum Tree
+
+    Key Concept:
+    - Use postorder traversal: Left -> Right -> Root.
+    - First calculate the sum of left and right subtrees.
+    - Update current node: root->data += leftsum + rightsum;
+    - Return updated root->data so the parent can use it.
+
+    Example:
+    Before:  1 2 3 4 5
+    After:   15 2 12 4 5
+
+    Complexity:
+    Time  -> O(n)
+    Space -> O(h)  // recursion stack
+
+    Important:
+    Children must be processed before the parent.
+*/
+
 class Node{
 public:
     int data;
