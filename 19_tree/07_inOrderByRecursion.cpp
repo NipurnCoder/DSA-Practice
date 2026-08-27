@@ -1,14 +1,35 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
+#include<iostream>
+#include<vector>
+using namespace std;
+
+//Revision Day 104
+
+/*
+    LeetCode 107 : Binary Tree Level Order Traversal II
+             106 : Construct Binary Tree from Inorder and Postorder Traversal
+
+    Topic: Binary Tree Inorder Traversal
+
+    Inorder Traversal = Left → Root → Right
+    Use recursion: traverse left, store root->val, traverse right.
+    Base case: if(root == NULL) return;
+
+    Time Complexity: O(n)
+    Space Complexity: O(h) due to recursion stack.
+*/
+
+class TreeNode {
+public:    
+    int val;
+    TreeNode* left;
+    TreeNode* right;
+
+    TreeNode(int data){
+        val = data;
+        left = right = NULL;
+    }
+};
+
 class Solution {
 public:
     void inorder(TreeNode* root, vector<int>& ans){
@@ -27,3 +48,19 @@ public:
        return ans;
     }
 };
+
+int main(){
+
+    TreeNode* root = new TreeNode(1);
+    root->right = new TreeNode(2);
+    root->right->left = new TreeNode(3);
+
+    Solution s;
+
+    vector<int> ans = s.inorderTraversal(root);
+
+    for(int val : ans){
+        cout<<val<<" ";
+    }
+    return 0;
+}
