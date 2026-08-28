@@ -2,6 +2,28 @@
 #include <vector>
 using namespace std;
 
+//Revision Day 105 [28/08/2026]
+
+/*
+    LeetCode 700 : Search in a Binary Search Tree
+
+    Topic: Morris Inorder Traversal
+
+    Morris Traversal performs -> Inorder = Left → Root → Right without recursion or a stack.
+
+    Key idea: Find the inorder predecessor and create a temporary **thread** back to the current node.
+
+    * curr->left == NULL → visit curr, move right.
+    * Left child exists → find inorder predecessor.
+    * IP->right == NULL → create thread and move left.
+    * IP->right == curr → remove thread, visit curr, move right.
+
+    Time Complexity: O(n) ⏱
+    Extra Space: O(1)
+
+    Remember: Create thread → Go left → Come back → Remove thread → Visit → Go right
+*/    
+
 // Definition of TreeNode
 struct TreeNode {
     int val;
@@ -55,6 +77,7 @@ int main() {
 
         Inorder: 1 3 2
     */
+
 
     TreeNode* root = new TreeNode(1);
     root->right = new TreeNode(2);
