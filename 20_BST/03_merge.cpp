@@ -2,6 +2,37 @@
 #include<vector>
 using namespace std;
 
+//Revision Day 108
+
+/*
+    LeetCode 1382 : Balance a Binary Search Tree
+             1305 : All Elements in Two Binary Search Trees
+             
+    Topic: Merge Two Binary Search Trees
+
+    Approach: 
+    1. Perform Inorder Traversal on both BSTs.
+    2. Inorder traversal of a BST gives elements in sorted order.
+    3. Store the inorder elements of both BSTs in separate arrays.
+    4. Merge both sorted arrays using the Two Pointer Technique.
+    5. The merged array contains all elements in sorted order.
+    6. Build a balanced BST from the merged sorted array by choosing
+       the middle element as the root.
+ 
+    Key Idea: 
+    BST + Inorder Traversal = Sorted Array
+    Two Sorted Arrays + Two Pointers = Merged Sorted Array
+    Sorted Array + Middle Element = Balanced BST
+ 
+    Time Complexity: O(n + m)
+    Space Complexity: O(n + m)
+ 
+    Important:
+    1. Inorder traversal is used because BST gives sorted order.
+    2. Two pointers efficiently merge the two sorted arrays.
+    3. Using the middle element while building the BST keeps it balanced.
+*/
+
 class Node{
 public:
     int data;
@@ -49,13 +80,13 @@ void inorder(Node* root, vector<int>& arr){
 
 Node* buildBSTFromSorted(vector<int> arr, int st, int end){
     if(st > end){
-    return NULL;
+        return NULL;
     }
 
     int mid = st + (end-st)/2;
     Node* root = new Node(arr[mid]);
 
-    root->left = buildBSTFromSorted(arr, st,mid-1);
+    root->left = buildBSTFromSorted(arr, st, mid-1);
     root->right = buildBSTFromSorted(arr, mid+1, end);
 
     return root;
@@ -71,7 +102,8 @@ Node* merge2BST(Node* root1, Node* root2){
 
     int i=0, j=0;
     
-    while(i<arr1.size() && j<arr2.size()) {
+    while(i < arr1.size() && j < arr2.size()) {
+
         if(arr1[i] < arr2[j]){
             temp.push_back(arr1[i++]);
         } else {
