@@ -4,6 +4,41 @@
 #include<climits>
 using namespace std;
 
+//Revision Day 109
+
+/*
+    LeetCode 1373 : Maximum Sum BST in Binary Tree [Hard]
+
+    Topic: Largest BST in a Binary Tree
+
+    Approach:
+        1. Use Postorder Traversal: Left → Right → Root.
+        2. For every subtree, maintain 3 pieces of information:
+        - min  → minimum value in the subtree
+        - max  → maximum value in the subtree
+        - sz   → size of the largest BST
+        3. A subtree is a BST if:
+            root->data > left.max
+            AND
+            root->data < right.min
+        4. If it is a BST:
+        - currMin = min(root->data, left.min)
+        - currMax = max(root->data, right.max)
+        - currSize = left.sz + right.sz + 1
+        5. If it is NOT a BST:
+        - Keep the larger BST from left or right subtree.
+
+    Base case:
+        Empty subtree → {INT_MAX, INT_MIN, 0}
+
+    Key Idea:
+        Return information from children so the parent can decide
+        whether its entire subtree is a BST.
+
+    Time Complexity: O(n)
+    Space Complexity: O(h)
+*/
+
 class Node{
 public:
     int data;
@@ -55,7 +90,7 @@ public :
     int min, max, sz;
 
     Info(int mi, int ma, int size){
-        min = mi;
+        min = mi;   //like above class node
         max = ma;
         sz = size;
     }
