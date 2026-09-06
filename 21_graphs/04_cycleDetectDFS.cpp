@@ -4,6 +4,24 @@
 #include<queue>
 using namespace std;
 
+//Revision Day 114
+
+/*
+    LeetCode 684 : Redundant Connection
+
+    Topic: Cycle Detection in Undirected Graph using DFS
+
+    Key Points:
+    1. Use DFS to traverse the graph.
+    2. Maintain a visited array to track visited vertices.
+    3. Pass the parent vertex during DFS.
+    4. If a visited neighbor is not the parent, a cycle exists.
+    5. Check every unvisited vertex to handle disconnected graphs.
+
+    TC: O(V + E)
+    SC: O(V)
+*/
+
 class Graph {
     int V;
     list<int> *l;
