@@ -4,6 +4,26 @@
 #include<list>
 using namespace std;
 
+//Revision Day 115 [7/9/2026]
+
+/*
+    LeetCode 785 : Is Graph Bipartite?
+
+    Topic: Cycle Detection in Undirected Graph using BFS
+
+    Key Points:
+    1. Use BFS with a queue storing {node, parent}.
+    2. Mark a node visited when pushing it into the queue.
+    3. If a neighbor is unvisited, push it with the current node as parent.
+    4. If a neighbor is already visited and is NOT the parent,
+        then a cycle exists.
+    5. For disconnected graphs, run BFS from every unvisited vertex.
+
+    Time Complexity: O(V + E)
+    Space Complexity: O(V + E)
+*/
+
+
 class Graph {
     int V;
     list<int> *l;
@@ -43,14 +63,14 @@ public:
     bool isCycle(){
         vector<bool> vis(V, false);
 
-        for(int i=0; i<V; i++){
+        for(int i=0; i<V; i++){ //for other disconnected src 
             if(!vis[i]){
                 if(isCycleUndirBFS(i, vis)){
                     return true;
                 }
             }
-            return false;
         }
+        return false;
     }
 };
 
