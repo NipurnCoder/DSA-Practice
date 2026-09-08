@@ -4,6 +4,35 @@
 #include<list>
 using namespace std;
 
+//Revision Day 116
+
+/*
+    LeetCode 802 : Find Eventual Safe States
+
+    Topic: Cycle Detection in a Directed Graph
+
+    Approach:
+    1. Use DFS to traverse the directed graph.
+    2. Use visited[] to track nodes that have already been visited.
+    3. Use recPath[] to track nodes in the current DFS recursion path.
+    4. If we encounter a node that is already in recPath[], a cycle exists.
+    5. Reset recPath[curr] = false while backtracking.
+    6. Check every unvisited node to handle disconnected components.
+
+    Key Concept:
+    - visited[] = Node has been visited before.
+    - recPath[] = Node is currently in the DFS path.
+    - visited[v] && recPath[v] → Cycle detected.
+
+    Complexity:
+    Time: O(V + E)
+    Space: O(V)
+
+    Important:
+    Directed Graph Cycle = Back Edge to a node in the current recursion path.
+*/
+
+
 class Graph {
     int V;
     list<int> *l;
@@ -14,7 +43,7 @@ public :
     }
 
     void addEdg(int u, int v){
-        l[u].push_back(v);
+        l[u].push_back(v); //directed u--->v
     }
 
     //Cycle Detection
