@@ -5,6 +5,48 @@
 #include<stack>
 using namespace std;
 
+//Revision Day 117
+
+/*
+    LeetCode 802 : Find Eventual Safe States
+
+    Topic: Topological Sorting using DFS
+
+    Approach:
+    1. Create a directed graph using an adjacency list.
+    2. Run DFS from every unvisited vertex.
+    3. During DFS, visit all neighbouring nodes first.
+    4. After all neighbours are processed, push the current node
+       into a stack.
+    5. Finally, pop the stack to get the topological ordering.
+
+    Why stack?
+    A node is pushed only after all its dependencies are processed.
+    Therefore, popping the stack gives the required ordering.
+
+    Example:
+    Edge: u -> v
+    Topological order must contain u before v.
+
+    Time Complexity:
+    O(V + E)
+
+    Space Complexity:
+    O(V + E)
+    - Adjacency list: O(V + E)
+    - Visited array: O(V)
+    - Stack: O(V)
+    - Recursion stack: O(V)
+
+    Important Note:
+    Topological sorting is possible only for a DAG
+    (Directed Acyclic Graph).
+
+    Key Point:
+    DFS Topological Sort = DFS + Stack
+    Push node AFTER visiting all neighbours.
+*/
+
 class Graph {
     int V;
     list<int> *l;
