@@ -5,6 +5,36 @@
 #include<stack>
 using namespace std;
 
+//Revision Day 118 [16/09/2026]
+/*
+    LeetCode 2115 : Find All Possible Recipes from Given Supplies
+
+    Topic: Topological Sort
+
+    Algorithm: Kahn's Algorithm (BFS)
+
+    Defination:
+    Kahn’s Algorithm is a BFS-based algorithm used to perform Topological Sort 
+        by repeatedly selecting vertices with indegree 0 and removing their outgoing edges.
+
+    Approach:
+    1. Calculate indegree of every vertex.
+    2. Put all 0-indegree vertices into a queue.
+    3. Pop a vertex and add it to the result.
+    4. Decrease indegree of its neighbors.
+    5. If any neighbor becomes 0, push it into the queue.
+    6. If result size != V, graph contains a cycle.
+
+    Time Complexity: O(V + E)
+    Space Complexity: O(V + E)
+
+    Key Point:
+    Topological Sort is possible only for a Directed Acyclic Graph (DAG).
+
+    Important:
+    A topological ordering is not necessarily unique.
+*/
+
 class Graph {
     int V;
     list<int> *l;
