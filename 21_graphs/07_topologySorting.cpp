@@ -8,7 +8,7 @@ using namespace std;
 //Revision Day 117
 
 /*
-    LeetCode 802 : Find Eventual Safe States
+    LeetCode 310 : Minimum Height Trees
 
     Topic: Topological Sorting using DFS
 
