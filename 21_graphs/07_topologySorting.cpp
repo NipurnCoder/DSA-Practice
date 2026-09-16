@@ -12,6 +12,10 @@ using namespace std;
 
     Topic: Topological Sorting using DFS
 
+    Defination:
+    Topological Sort is a linear ordering of the vertices of a Directed Acyclic Graph (DAG) such that 
+        for every directed edge u → v, u appears before v.
+
     Approach:
     1. Create a directed graph using an adjacency list.
     2. Run DFS from every unvisited vertex.
