@@ -51,21 +51,24 @@ void dijkstra(int src, vector<vector<Edge>>& g, int V){
     vector<int> dist(V, INT_MAX);
     dist[src] = 0;
 
-    //Priority Queue (Max Heap)
-    priority_queue<pair<int,int>,vector<pair<int,int>>, greater<pair<int,int>> > pq; //Min Heap
+    //Priority Queue (Max Heap) by defaut
+    priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq; //Min Heap
     pq.push({0, src});
 
     while(pq.size() > 0){
         int u = pq.top().second;
         pq.pop();
 
-        for(Edge e : g[u]){     //Edge Relaxation
+
+        //Edge Relaxation
+        for(Edge e : g[u]){     
             if(dist[e.v] > dist[u] + e.wt){     //4 > 2 + 1
-                dist[e.v] = dist[u] + e.wt;     //3
+                dist[e.v] = dist[u] + e.wt;     //updated to smaller dist '3'
                 pq.push({dist[e.v], e.v});
             }
         }
     }
+    
     for(int i=0; i<V ; i++){
         cout<<dist[i]<<" ";
     }
