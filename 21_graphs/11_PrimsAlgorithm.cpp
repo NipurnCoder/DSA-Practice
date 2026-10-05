@@ -6,6 +6,8 @@ using namespace std;
 //Revision Day 121
 
 /*
+    LeetCode 1584 : Min Cost to Connect All Points
+
     Topic: Prim's Algorithm - Minimum Spanning Tree (MST)
 
     Problem:
