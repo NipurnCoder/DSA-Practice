@@ -2,8 +2,7 @@
 #include <string>
 using namespace std;
 
-class Teacher
-{
+class Teacher{
 
 private:
     double salary;
@@ -18,26 +17,25 @@ public:
     // double salary ;
     string subject;
 
-    void changeDept(string newdept)
-    {
+    void changeDept(string newdept){
         dept = newdept;
     }
 
     // setter
-    void setSalary(double s)
-    {
+    void setSalary(double s){
         salary = s;
     }
+
     // getter
-    double getSalary()
-    {
+    double getSalary(){
         return salary;
     }
 };
 
-int main()
-{
+int main(){
+
     Teacher t1;
+
     t1.name = "Nipurn";
     //t1.dept = "Coputer Science";
     //t1.salary = 100000;
@@ -48,6 +46,5 @@ int main()
     //cout << t1.salary << endl;
     cout << t1.getSalary() << t1.dept << endl;
     
-
     return 0;
 }
