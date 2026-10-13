@@ -14,7 +14,6 @@ public :
        // this->racingbike = racingbike;
        racingbikePtr = new string;
        *racingbikePtr = racingbike;
-
     }
 
     Bike(Bike &o){
@@ -40,11 +39,14 @@ public :
 int main(){
 
     Bike b1("Dawson", "Kawasaki");
+
     b1.getInfo();
 
     Bike b2(b1);
     b2.name = "Kingston";
     *(b2.racingbikePtr) = "Hayabusa";
+
     b2.getInfo();
+
     return 0;
 }
