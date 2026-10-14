@@ -2,6 +2,41 @@
 #include<string>
 using namespace std;
 
+/*
+    Revision [14/10/2026]
+
+    Topic: Copy Constructor and Deep Copy
+
+    Key Concepts:
+    1. Parameterized Constructor initializes object data.
+    2. Copy Constructor creates a new object from an existing object.
+    3. Shallow Copy copies pointer addresses, causing shared memory.
+    4. Deep Copy allocates separate memory and copies the actual value.
+    5. Destructor releases dynamically allocated memory using delete.
+
+    Important Code:
+    racingbikePtr = new string;
+    *racingbikePtr = *o.racingbikePtr;
+
+    Why Deep Copy?
+    Each object gets its own dynamically allocated string.
+    Changing b2.racingbikePtr does not affect b1.racingbikePtr.
+
+    Destructor:
+    Each object deletes its own allocated memory.
+
+    Output:
+    b1 -> Dawson, Kawasaki
+    b2 -> Kingston, Hayabusa
+
+    Important Note:
+    Prefer const Bike& in the copy constructor:
+    Bike(const Bike& o)
+
+    Time Complexity: O(L), where L is the length of the copied string.
+    Space Complexity: O(L) additional memory for the copied string.
+*/
+
 class Bike {
 
 public :
