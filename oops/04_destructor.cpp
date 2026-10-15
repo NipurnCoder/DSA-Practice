@@ -2,6 +2,41 @@
 #include<string>
 using namespace std;
 
+/*
+    Revision [15/10/2026]
+
+    Topic: Classes, Objects, Access Specifiers, Constructor & Destructor
+
+    Key Concepts:
+    1. Class Choice contains data members and member functions.
+    2. Private members (id1, id2) cannot be accessed directly outside the class.
+    3. Public members (name1, name2, option) can be accessed using the object.
+    4. Constructor initializes IDs and option automatically.
+    5. Choose() takes user input (1 or 2).
+    6. getValue() displays the ID according to the selected option.
+    7. Option() displays the selected name, ID, and result.
+    8. Destructor (~Choice()) executes automatically when the object goes out of scope.
+
+    Important Notes:
+    - Use void when a function does not return any value.
+    - Initialize variables before reading or using them.
+    - Handle invalid choices using else.
+    - Constructor removes the need to call setValue() separately.
+    - Object members are accessed using the dot (.) operator.
+
+    Time Complexity:
+    - Choose(): O(1)
+    - getValue(): O(1)
+    - Option(): O(1)
+
+    Space Complexity: O(1)
+
+    Important Learning:
+    Constructor -> Initializes the object.
+    Member functions -> Define object behavior.
+    Destructor -> Performs cleanup when the object is destroyed.
+*/
+
 class Choice {
 
 private :
