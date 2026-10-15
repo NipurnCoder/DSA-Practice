@@ -18,6 +18,7 @@ public :
         id2 = 2002;
     }
 
+    //Initialized ID & Option
     void Choose(){
         cout<<"Enter your choice [1 or 2] : ";
         cin>>option; 
@@ -57,11 +58,13 @@ public :
 };
 
 int main(){
+
     Choice c1;
     c1.setValue();
 
-    c1.name1 = "Popat Lal ";
+    c1.name1 = "Popat Lal  ";
     cout<<"Name - "<<c1.name1<<endl;
+
     //Choice c2(c1);
     c1.name2 = "Namakuul ";
     cout<<"Name - "<<c1.name2<<endl;
