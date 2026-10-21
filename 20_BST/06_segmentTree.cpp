@@ -70,9 +70,9 @@ public:
        n = nums.size();
 
        //Initialization
-       sqSumSegTree.assign(4*n, 0);
-       sumSegTree.assign(4*n, 0);
-       lazyTree.assign(4*n, 0);
+       sqSumSegTree.assign(4*n, 0); //[2n+1] is no. of nodes, where n is no. of child nodes
+       sumSegTree.assign(4*n, 0);   //(4*n) is to make pow(2)
+       lazyTree.assign(4*n, 0);     // GP: (a/r-1)
 
        vector<int> lastSeenIdx(100001, -1); //Segment Tree in vector form
        ll result = 0;
