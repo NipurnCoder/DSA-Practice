@@ -1,38 +1,80 @@
 #include <iostream>
 using namespace std;
-int i=1, n;
-int check_pow2 () {
 
-    cout<<"Enter the number you want to find the power of 2 by me : ";
-    cin>>n;
+//Revision [28/10/2026]
 
-    while(i<n){
-        i=i<<1;
+int check_pow2() {
+    int n;
+    int i = 1; // Reset i for every function call
+
+    cout << "Enter the number you want to check: ";
+    cin >> n;
+
+    // Powers of 2: 1, 2, 4, 8, 16, 32, ...
+    while (i < n) {
+        i = i << 1; // Multiply i by 2
     }
 
-        if(n==i){
-            cout<<n<<" is power of 2"<<endl;
-        }
-        else{
-            cout<<n<<" is NOT power of 2"<<endl;
-        }
-        return 0;
+    if (n > 0 && n == i) {
+        cout << n << " is a power of 2" << endl;
+    }
+    else {
+        cout << n << " is NOT a power of 2" << endl;
+    }
+
+    return 0;
 }
-int main()
-{
+
+int main() {
     int a;
-    cout<<"Enter your number : ";
-    cin>>a;
 
-    for(int i=0;i<=a;i++)
-    {
-        // if(i<=a)
-        {
-            cout<<check_pow2()<<endl;
-        }
+    cout << "How many numbers do you want to check? ";
+    cin >> a;
 
+    for (int i = 0; i < a; i++) {
+        check_pow2();
     }
+
+    return 0;
 }
+
+
+// #include <iostream>
+// using namespace std;
+// int i=1, n;
+// int check_pow2 () {
+
+//     cout<<"Enter the number you want to find the power of 2 by me : ";
+//     cin>>n;
+
+//     while(i<n){
+//         i=i<<1;
+//     }
+
+//         if(n==i){
+//             cout<<n<<" is power of 2"<<endl;
+//         }
+//         else{
+//             cout<<n<<" is NOT power of 2"<<endl;
+//         }
+//         return 0;
+// }
+// int main()
+// {
+//     int a;
+//     cout<<"Enter your number : ";
+//     cin>>a;
+
+//     for(int i=0;i<=a;i++)
+//     {
+//         // if(i<=a)
+//         {
+//             cout<<check_pow2()<<endl;
+//         }
+
+//     }
+//     return 0;
+// }
     
 //     cout<<check_pow2()<<endl;
 //     cout<<check_pow2()<<endl;
