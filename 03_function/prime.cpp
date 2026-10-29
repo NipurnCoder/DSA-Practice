@@ -6,18 +6,23 @@ int prime(int a)
     // int a;
     // cout<<"Enter your number : ";
     // cin>>a;
+
+    if(a < 2){
+        cout<<a<<" is not a prime";
+    }
+    
     bool isprime=true;
 
-    for(int i=2;i<=a;i++)
+    for(int i=2; i*i<=a; i++)
     {
-        if(i%a==0)
+        if(a % i ==0)
         {
-            isprime==false;
+            isprime=false;
             break;
         }
     }
 
-    if(isprime==true)
+    if(isprime)
     {
         cout<<a<<" PRIME";
     }
@@ -30,7 +35,7 @@ int prime(int a)
 
 int main()
 {
-    prime(12);
+    prime(1);
     cout<<endl;
     prime(13);
 }
