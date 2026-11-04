@@ -3,6 +3,31 @@
 #include<algorithm>
 using namespace std;
 
+//Revision Day 123 [4/11/2026]
+
+/*
+    Kruskal's Algorithm 
+        - It is a greedy algorithm used to find the (MST) of a connected, weighted, undirected graph.
+        - It works by selecting edges in increasing order of weight while avoiding cycles, until exactly V - 1 edges are selected
+
+    Topic: Minimum Spanning Tree (MST)
+    Approach: Greedy + Disjoint Set Union (DSU)
+
+    Key Points:
+    1. Sort all edges in increasing order of weight.
+    2. Use find() with path compression.
+    3. Use unionByRank() to merge components.
+    4. Select an edge only if it does not form a cycle.
+    5. Stop when V-1 edges are selected.
+
+    Time Complexity: O(E log E)
+    Space Complexity: O(V + E)
+
+    Important:
+    MST contains exactly V-1 edges for a connected graph.
+    Kruskal's algorithm works with negative edge weights too.
+*/
+
 class Edge {
 public : 
     int u, v, wt;
@@ -13,7 +38,8 @@ public :
         this->wt = wt;
     }
 
-    //comparator on '>' Operator Overloading
+    //Custom Comparator for wt comparision
+    //compare on '>' Operator Overloading
     bool operator<(const Edge &other) const {
         return this->wt < other.wt; //Take small weight
     }
@@ -56,15 +82,19 @@ public:
             rank[parA]++;
         }
         else if(rank[parA] > rank[parB]){
-            par[parB] = parA;
+            par[parB] = parA;  // B ka par A bn jaega
         }
         else{
             par[parA] = parB;
         }
     }
 
-void Kruskal(){   //O(ElogE)
+    //Kruskals Algorithm
+
+    void Kruskal(){   //O(ElogE)
+
         sort(edges.begin(), edges.end());  
+        
         int mstCost = 0;
         int count = 0;
 
