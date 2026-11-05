@@ -6,6 +6,8 @@ using namespace std;
 //Revision Day 123 [4/11/2026]
 
 /*
+    LeetCode 1489 : Find Critical and Pseudo-Critical Edges in Minimum Spanning Tree
+
     Kruskal's Algorithm 
         - It is a greedy algorithm used to find the (MST) of a connected, weighted, undirected graph.
         - It works by selecting edges in increasing order of weight while avoiding cycles, until exactly V - 1 edges are selected
