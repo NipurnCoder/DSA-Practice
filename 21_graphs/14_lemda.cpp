@@ -7,37 +7,38 @@ using namespace std;
 
 /*
     LeetCode 1665: Minimum Initial Energy to Finish Tasks
+    
     Topic: Greedy Algorithm + Custom Sorting + Lambda Function
 
     Approach:
-    1. Sort tasks in decreasing order of (minimum - actual).
-    2. If current energy is less than minimum energy,
-    add the required difference to initial energy.
-    3. Subtract actual energy after completing each task.
-    4. Return the minimum initial energy required.
+        1. Sort tasks in decreasing order of (minimum - actual).
+        2. If current energy is less than minimum energy,
+            add the required difference to initial energy.
+        3. Subtract actual energy after completing each task.
+        4. Return the minimum initial energy required.
 
     Lambda Function:
-    [](const vector<int>& a, const vector<int>& b)
-    - [] : Capture clause, captures no outside variables.
-    - (a, b) : Parameters representing two tasks.
-    - const vector<int>& : Passes vectors by reference
-    without copying and prevents modification.
-    - a[1] - a[0] : Energy difference of task a.
-    - b[1] - b[0] : Energy difference of task b.
-    - > : Sorts tasks in descending order of energy difference.
-    - return : Returns true if task a should come before task b.
+        [](const vector<int>& a, const vector<int>& b)
+        - [] : Capture clause, captures no outside variables.
+        - (a, b) : Parameters representing two tasks.
+        - const vector<int>& : Passes vectors by reference
+        without copying and prevents modification.
+        - a[1] - a[0] : Energy difference of task a.
+        - b[1] - b[0] : Energy difference of task b.
+        - > : Sorts tasks in descending order of energy difference.
+        - return : Returns true if task a should come before task b.
 
     Time Complexity: O(n log n)
     Space Complexity: O(log n) - Sorting stack space
 
     Key Points:
-    - actual = Energy required to complete the task.
-    - minimum = Minimum energy required before starting.
-    - energy = Current energy available.
-    - ans = Minimum initial energy required.
+        - actual = Energy required to complete the task.
+        - minimum = Minimum energy required before starting.
+        - energy = Current energy available.
+        - ans = Minimum initial energy required.
 
     Important Note:
-    Greedy sorting helps minimize the initial energy required.
+        Greedy sorting helps minimize the initial energy required.
 */
 
 class Solution {        //LeetCode Hard:1665 
