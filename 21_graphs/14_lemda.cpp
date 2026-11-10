@@ -43,12 +43,19 @@ using namespace std;
 
 class Solution {        //LeetCode Hard:1665 
 public: 
+
     int minimumEffort(vector<vector<int>>& tasks) {
 
-        sort(tasks.begin(), tasks.end(),
-            [](vector<int>& a, vector<int>& b) {    //Lemda Function
-                return (a[1] - a[0]) > (b[1] - b[0]);
-            });
+        auto lembda = [](vector<int>& a, vector<int>& b){
+            return (a[1] - a[0]) > (b[1] - b[0]); //lembda function
+        }; 
+
+        sort(tasks.begin(), tasks.end(), lembda); //customised sorting using lembda function
+
+        // sort(tasks.begin(), tasks.end(),
+        //     [](vector<int>& a, vector<int>& b) {    //Lemda Function
+        //         return (a[1] - a[0]) > (b[1] - b[0]);
+        //     });
 
         int energy = 0;
         int ans = 0;
@@ -71,6 +78,7 @@ public:
 };
 
 int main() {
+
     Solution s;
 
     vector<vector<int>> tasks {{1,2}, {2,4}, {4,8}};
