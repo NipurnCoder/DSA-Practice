@@ -6,16 +6,21 @@ using namespace std;
 
 class Solution {    //LeetCode : 1584
 public:
-    int manDist(vector<vector<int>>& points, int p1, int p2){
+    typedef pair<int, int> P;
+    using Vec = vector<vector<int>>;     //also use this way
+
+    int manDist(Vec& points, int p1, int p2){
         return (abs(points[p1][0] - points[p2][0]) +
                 abs(points[p1][1] - points[p2][1]));
     }
 
-    int minCostConnectPoints(vector<vector<int>>& points) { //Prim's Algorithm
+    int minCostConnectPoints(Vec& points) { //Prim's Algorithm
         int n = points.size();
 
         //Priority Queue - minheap
-        priority_queue <pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>> > pq;
+        priority_queue <P, vector<P>, greater<P>> pq;
+        
+        // priority_queue <pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>> > pq;
         
         vector<bool> mstSet(n, false);
         int mstCost = 0;
@@ -49,8 +54,9 @@ public:
 int main() {
 
     Solution obj;
-
-    vector<vector<int>> points = {
+    using Vec = vector<vector<int>>;
+    
+    Vec points = {
         {0,0},
         {2,2},
         {3,10},
