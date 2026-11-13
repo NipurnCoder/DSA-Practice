@@ -4,6 +4,40 @@
 #include<cmath>
 using namespace std;
 
+//Revision [13/11/2026]
+
+/*
+    Topic: Minimum Spanning Tree (MST)
+    Algorithm: Prim's Algorithm
+    LeetCode: 1584 - Min Cost to Connect All Points
+
+    Approach:
+    1. Start from node 0 with cost 0.
+    2. Use a Min Heap to select the minimum-weight edge.
+    3. Extract {weight, node} from the priority queue.
+    4. If the node is already visited, skip it.
+    5. Otherwise, mark it visited and add its weight to MST cost.
+    6. Calculate distances to all unvisited nodes.
+    7. Push these candidate edges into the Min Heap.
+    8. Repeat until all nodes are visited.
+
+    Manhattan Distance:
+    |x1 - x2| + |y1 - y2|
+
+    Data Structures:
+    - Priority Queue (Min Heap)
+    - Vector<bool> (Visited Array)
+
+    Time Complexity: O(V^2 log V)
+    Space Complexity: O(V^2)
+
+    Key Points:
+    - Prim's Algorithm is a Greedy Algorithm.
+    - MST connects all vertices without cycles.
+    - Min Heap selects the minimum-weight candidate.
+    - Skip already visited nodes to avoid duplicate processing.
+*/
+
 class Solution {    //LeetCode : 1584
 public:
     typedef pair<int, int> P;
