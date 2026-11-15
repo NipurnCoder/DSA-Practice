@@ -5,8 +5,38 @@
 using namespace std;      
 
 //Revision Day 126 [14/11/2026]
+/*
+    LeetCode 787 : Cheapest Flights Within K Stops
 
-//LeetCode 787 : Dijkstra's Algorithm + BFS approach : some modification like not use of Priority_Queue
+    Topic: Graph | BFS | Bellman-Ford | Shortest Path
+
+    Approach:
+        1. Build a directed weighted adjacency list.
+        2. Use a Queue to traverse nodes while tracking:
+        - Current node
+        - Total cost
+        - Number of stops
+        3. Relax edges only when the cost improves and the stop
+        constraint is satisfied.
+        4. Return -1 if the destination is unreachable.
+
+    Important Points:
+        - At most K stops means at most K+1 flights (edges).
+        - A simple dist[] array with queue-based relaxation is
+            not guaranteed to work for all test cases.
+        - Track cost separately for different stop counts.
+        - Bellman-Ford is a reliable alternative for this problem.
+        - Use a temporary distance array in Bellman-Ford so that
+            each iteration adds at most one edge.
+
+    Complexity (Bellman-Ford):
+    Time: O(K * E)
+    Space: O(V)
+
+    Key Learning:
+        Unlike ordinary Dijkstra, the cheapest path also depends
+        on the number of stops, not just the total cost.
+*/
 
 class Solution {         
 public:            
