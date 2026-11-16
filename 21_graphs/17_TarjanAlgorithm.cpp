@@ -3,11 +3,13 @@
 #include<algorithm>
 using namespace std;
                     
+//Revision Day 127 [16/11/2026]
+
 class Solution {         //LeetCode : 1192 Hard
 public:                  //Bridge Condition
 
     int time;
-    vector<int> dt, low;
+    vector<int> dt, low; //Discovery time, Lowest discovery time
 
     void dfs(int u, int parU, vector<vector<int>>& adj, vector<vector<int>>& cc){
         dt[u] = low[u] = ++time;
