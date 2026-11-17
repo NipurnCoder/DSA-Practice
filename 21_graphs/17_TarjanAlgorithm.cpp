@@ -2,8 +2,42 @@
 #include<vector>
 #include<algorithm>
 using namespace std;
-                    
-//Revision Day 127 [16/11/2026]
+
+// Revision Day 127 [16/11/2026]
+
+/*
+    Topic: Bridges in an Undirected Graph
+    LeetCode 1192: Critical Connections in a Network (Hard)
+    Link: https://leetcode.com/problems/critical-connections-in-a-network/
+
+    Approach: Tarjan's Algorithm (DFS)
+
+    Key Concepts:
+    1. dt[u]  = Discovery time of node u.
+    2. low[u] = Earliest discovery time reachable from u
+                using DFS tree edges and at most one back edge.
+    3. Use DFS to visit all connected components.
+    4. Update low[u] using low[v] after DFS returns.
+    5. For an already visited neighbour (excluding parent),
+    update low[u] using dt[v].
+
+    Bridge Condition:
+    if(low[v] > dt[u])
+        Edge (u, v) is a Bridge.
+
+    Important:
+    Bridge     -> low[v] > dt[u]
+    Articulation Point -> low[v] >= dt[u] (root is special)
+
+    Time Complexity: O(V + E)
+    Space Complexity: O(V + E)
+    DFS Auxiliary Space: O(V)
+
+    Revision Note:
+    If a child cannot reach its parent or any ancestor
+    through a back edge, removing the connecting edge
+    disconnects the graph. Hence, it is a Bridge.
+*/    
 
 class Solution {         //LeetCode : 1192 Hard
 public:                  //Bridge Condition
