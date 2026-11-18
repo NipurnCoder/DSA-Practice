@@ -4,6 +4,15 @@
 #include<set>
 using namespace std;
 
+//Revision Day 128 [18/11/2026]
+
+/*
+    Topic: Articulation Points (Cut Vertices)
+    Algorithm: Tarjan's Algorithm
+    Approach: DFS + Discovery Time + Low Time
+
+*/
+
 class Graph {
 public : 
     int V;
@@ -41,7 +50,7 @@ public :
                     cp.insert(u);   //Articulation Point
                 }
             } else if(v != parU){
-                low[u] = min(low[u], low[v]);
+                low[u] = min(low[u], dt[v]);
             }
         }
         if(parU == -1 && children > 1){
@@ -51,7 +60,7 @@ public :
 
     int articulationPoints(){
 
-        int time = 0;
+        time = 0;
         dt.resize(V, -1);    //dt = -1 -> unvisited node
         low.resize(V);
 
