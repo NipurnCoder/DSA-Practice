@@ -7,10 +7,50 @@ using namespace std;
 //Revision Day 128 [18/11/2026]
 
 /*
+    LeetCode 1192 : Critical Connections in a Network (Bridges)
+
     Topic: Articulation Points (Cut Vertices)
+    
     Algorithm: Tarjan's Algorithm
     Approach: DFS + Discovery Time + Low Time
 
+    Key Concepts:
+    1. dt[u]  = Discovery time of node u.
+    2. low[u] = Earliest discovery time reachable from u
+                using DFS tree edges and at most one back edge.
+    3. Use DFS to visit all connected components.
+    4. Update low[u] using low[v] after DFS returns.
+    5. For an already visited neighbour (excluding parent),
+       update low[u] using dt[v].
+    6. Maintain children count to handle the root node.
+
+    Articulation Point Conditions:
+
+    1. Non-root node:
+       if(low[v] >= dt[u])
+           Node u is an Articulation Point.
+
+    2. Root node:
+       if(children > 1)
+           Node u is an Articulation Point.
+
+    Important:
+    Bridge                  -> low[v] > dt[u]
+    Articulation Point      -> low[v] >= dt[u]
+    Root Articulation Point -> DFS children > 1
+
+    Time Complexity: O(V + E) for DFS
+    Space Complexity: O(V + E)
+    DFS Auxiliary Space: O(V)
+
+    Revision Note:
+    If a child cannot reach an ancestor of the current node
+    through a back edge, removing the current node disconnects
+    that child subtree from the remaining graph.
+
+    Special Case:
+    The root node is an articulation point only when it has
+    more than one independent DFS child.
 */
 
 class Graph {
