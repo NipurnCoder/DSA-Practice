@@ -4,6 +4,13 @@
 #include<queue>
 using namespace std;        //LeetCode : 1345 Hard
 
+//Revision Day 129 [21/11/2026]
+
+/*
+    LeetCode 1345 : Jump Game IV (Hard)
+    Approach: BFS + Unordered Map
+*/
+
 class Solution{     
 public:
     int minJumps(vector<int>& arr){ //use BFS, unordered map 
@@ -26,7 +33,7 @@ public:
         int jumps = 0;
 
         q.push(0);
-        vis[0] = false;
+        vis[0] = true;
 
         while(!q.empty()){
             int sz = q.size();
